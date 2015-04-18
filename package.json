@@ -1,0 +1,34 @@
+{
+  "name": "mini-flux",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/mini-flux.git"
+  },
+  "author": "azu",
+  "email": "azuciao@gmail.com",
+  "homepage": "https://github.com/azu/mini-flux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azu/mini-flux/issues"
+  },
+  "version": "1.0.0",
+  "description": "mini flux implementation for DEMO.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "browserify -d -e src/App.js -t babelify -o build.js",
+    "watch": "watchify -d -e src/App.js -t babelify -o build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel": "^5.1.10",
+    "babelify": "^6.0.2",
+    "browserify": "^9.0.8",
+    "watchify": "^3.1.1"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
+  }
+}
