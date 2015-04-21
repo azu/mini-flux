@@ -3,18 +3,23 @@
 import React from "react"
 import ActionCreator from "./ActionCreator"
 import Store from "./Store"
+import EventEmitter from "./EventEmitter"
+
+var dispatcher = new EventEmitter();
+var action = new ActionCreator(dispatcher);
+var store = new Store(dispatcher);
 export default class Component extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {count: Store.getCount()};
+        this.state = {count: store.getCount()};
         // <- Observe store's change
-        Store.on("CHANGE", () => {
-            this.setState({count: Store.getCount()})
+        store.on("CHANGE", () => {
+            this.setState({count: store.getCount()})
         });
     }
 
     tick() {
-        ActionCreator.countUp(this.state.count + 1);
+        action.countUp(this.state.count + 1);
     }
 
     render() {

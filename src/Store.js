@@ -1,9 +1,8 @@
 // LICENSE : MIT
 "use strict";
-import dispatcher from "./dispatcher"
 import Emitter from "./EventEmitter"
 class Store extends Emitter {
-    constructor() {
+    constructor(dispatcher) {
         super();
         this.count = 0;
         // <--- observe event.
@@ -23,5 +22,4 @@ class Store extends Emitter {
         this.emit("CHANGE");
     }
 }
-// export as a singleton
-export default new Store();
+export default Store;
