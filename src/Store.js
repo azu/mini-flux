@@ -1,7 +1,7 @@
 // LICENSE : MIT
 "use strict";
 import dispatcher from "./dispatcher"
-import Emitter from "./Emitter"
+import Emitter from "./EventEmitter"
 export default class Store extends Emitter {
     constructor() {
         super();

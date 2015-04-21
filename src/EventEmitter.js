@@ -3,7 +3,7 @@
 /*
     Simple EventEmitter
  */
-export default class Emitter {
+export default class EventEmitter {
     constructor() {
         this._handlers = {};
     }
