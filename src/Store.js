@@ -2,22 +2,26 @@
 "use strict";
 import dispatcher from "./dispatcher"
 import Emitter from "./EventEmitter"
-export default class Store extends Emitter {
+class Store extends Emitter {
     constructor() {
         super();
-        this.lastClick = null;
-        // <- observe dispatcher event.
-        dispatcher.on("click", this.onHandleClick.bind(this));
+        this.count = 0;
+        // <--- observe event.
+        dispatcher.on("countUp", this.onCountUp.bind(this));
     }
 
-    getLastClick() {
-        return this.lastClick;
+    getCount() {
+        return this.count;
     }
 
-    onHandleClick(data) {
-        this.lastClick = data;
-        // -> emit Change
+    onCountUp(count) {
+        if (this.count === count) {
+            return;
+        }
+        this.count = count;
+        // emit "CHANGE" ---> self
         this.emit("CHANGE");
     }
 }
-Store.instance = new Store();
+// export as a singleton
+export default new Store();

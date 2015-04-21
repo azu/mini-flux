@@ -2,26 +2,29 @@
 "use strict";
 import React from "react"
 import ActionCreator from "./ActionCreator"
-import {instance} from "./Store"
+import Store from "./Store"
 export default class Component extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {count: instance.getLastClick()};
+        this.state = {count: Store.getCount()};
         // <- Observe store's change
-        instance.on("CHANGE", () => {
-            console.log(instance.getLastClick());
-            this.setState({count: instance.getLastClick()})
+        Store.on("CHANGE", () => {
+            this.setState({count: Store.getCount()})
         });
     }
 
     tick() {
-        ActionCreator.clickAction(this.state.count + 1);
+        ActionCreator.countUp(this.state.count + 1);
     }
 
     render() {
         return (
-            <div onClick={this.tick.bind(this)}>
-                Clicks: {this.state.count}
+            <div>
+                <button onClick={this.tick.bind(this)}>Count Up</button>
+
+                <p>
+                    Count: {this.state.count}
+                </p>
             </div>
         );
     }
