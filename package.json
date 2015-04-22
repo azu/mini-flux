@@ -20,10 +20,10 @@
   "scripts": {
     "build": "browserify -d -e src/App.js -t babelify -o build.js",
     "watch": "watchify -d -e src/App.js -t babelify -o build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.js"
   },
   "devDependencies": {
-    "babel": "^5.1.10",
+    "babel": "^5.1.11",
     "babel-core": "^5.1.11",
     "babel-plugin-espower": "^0.2.1",
     "babelify": "^6.0.2",

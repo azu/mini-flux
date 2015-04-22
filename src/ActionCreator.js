@@ -1,6 +1,5 @@
 // LICENSE : MIT
 "use strict";
-import dispatcher from "./dispatcher"
 export default class ActionCreator {
     constructor(dispatcher) {
         this.dispatcher = dispatcher;
