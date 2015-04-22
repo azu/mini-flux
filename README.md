@@ -16,6 +16,9 @@ mini flux implement for DEMO.
     npm run build
     open index.html
 
+## Test
+
+    npm test
 
 ## Contributing
 
