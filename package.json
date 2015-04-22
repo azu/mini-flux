@@ -18,8 +18,8 @@
     "test": "test"
   },
   "scripts": {
-    "build": "browserify -d -e src/App.js -t babelify -o build.js",
-    "watch": "watchify -d -e src/App.js -t babelify -o build.js",
+    "build": "browserify -d -e src/App.js -t [ babelify --loose es6.classes ]  -o build.js",
+    "watch": "watchify -d -e src/App.js -t [ babelify --loose es6.classes ] -o build.js",
     "test": "mocha test/**/*.js"
   },
   "devDependencies": {

@@ -18,17 +18,19 @@ export default class EventEmitter {
 
     emit(type, data) {
         var handlers = this._handlers[type] || [];
-        handlers.forEach((handler) => {
+        for (var i = 0; i < handlers.length; i++) {
+            var handler = handlers[i];
             handler.call(this, data);
-        });
+        }
     }
 
     off(type, handler) {
         var handlers = this._handlers[type] || [];
-        handlers.forEach((ownHandler, index) => {
+        for (var i = 0; i < handlers.length; i++) {
+            var ownHandler = handlers[i];
             if (ownHandler === handler) {
-                handlers.splice(index, 1);
+                handlers.splice(i, 1);
             }
-        });
+        }
     }
 }

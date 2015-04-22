@@ -8,14 +8,19 @@ import EventEmitter from "./EventEmitter"
 var dispatcher = new EventEmitter();
 var action = new ActionCreator(dispatcher);
 var store = new Store(dispatcher);
+
 export default class Component extends React.Component {
     constructor(props) {
         super(props);
         this.state = {count: store.getCount()};
         // <- Observe store's change
         store.on("CHANGE", () => {
-            this.setState({count: store.getCount()})
+            this._onChange();
         });
+    }
+
+    _onChange() {
+        this.setState({count: store.getCount()});
     }
 
     tick() {
