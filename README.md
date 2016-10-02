@@ -1,9 +1,9 @@
 # mini-flux
 
-mini flux implement for DEMO.
+mini flux implementation for DEMO.
 
 - No dependent library
-- EventEmitter only.(not use Flux's Dispatch)
+- Use EventEmitter only.(not use Flux's Dispatch)
     - just mean that this implement not handle order of events
     
 
